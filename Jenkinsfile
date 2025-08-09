@@ -3,18 +3,15 @@ pipeline {
     triggers {
         cron('H H * * 0') // Runs every Sunday
     }
-        stages {
+    stages {
         stage('Checkout') {
             steps {
-                // Intentional error: wrong branch name
                 checkout([$class: 'GitSCM',
-                          branches: [[name: '*/main']], // should be '*/main'
+                          branches: [[name: '*/main']],
                           userRemoteConfigs: [[url: 'https://github.com/RitaRai/jenkins-pipeline-demo.git']]
-               ])
-           }
+                ])
+            }
         }
-
-    stages {
         stage('Build') {
             steps {
                 echo 'Building...'
