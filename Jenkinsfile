@@ -8,7 +8,7 @@ pipeline {
             steps {
                 // Intentional error: wrong branch name
                 checkout([$class: 'GitSCM',
-                          branches: [[name: '*/master']], // should be '*/main'
+                          branches: [[name: '*/main']], // should be '*/main'
                           userRemoteConfigs: [[url: 'https://github.com/RitaRai/jenkins-pipeline-demo.git']]
                 ])
             }
